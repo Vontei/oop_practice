@@ -10,18 +10,21 @@ Animal.prototype.feed = function(){
   console.log('NOM NOM NOM')
 }
 
-function Pig(){
+function Pig(name){
   Animal.call(this)
+  this.name = name
 }
 
 
-function Dog(breed){
+function Dog(breed, name){
   Animal.call(this)
+  this.name = name
   this.breed = breed
 }
 
-function Rhino(){
+function Rhino(name){
   Animal.call(this)
+  this.name = name
 }
 
 Pig.prototype = new Animal();
@@ -50,12 +53,13 @@ Dog.prototype.isPurebred = function(){
 }
 
 
-var ventura = new Rhino()
+var ventura = new Rhino('ventura')
 ventura.removeHorn()
-var rex = new Dog('shepherd')
+var rex = new Dog('shepherd', 'rex')
 rex.speak()
 rex.isPurebred()
 rex.feed()
-var porkchop = new Pig()
+var porkchop = new Pig('porkchop')
 porkchop.rollInMud()
 porkchop.feed()
+porkchop.speak()
